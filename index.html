@@ -11,6 +11,73 @@
 
 </head>
 <body>
+    <section>
+        <div class="container">
+           <div class="row">
+            <div class="col-lg-6 my-4">
+                <img class="w-75" src="images/mac.png" alt="">
+                  </div>
+
+              <div class="col-lg-6">
+                <h1 class="fw-bold">Customize Your Blue 24-inch iMac with Apple M1 chip</h1>
+                <p>Apple M1 chip with 8-core CPU with performance cores and 4 effeciency cores, 7-core GPU, and 16-core Neural Engine 8GB SSD storage Two Thunderboit/USB 5 ports Magic Mouse Magic Keyboard -US English.</p>
+                <h3 class="my-3">Memory</h3>
+                <button id="general-memory" type="button" class="btn btn-outline-secondary">8GB Unified Memory</button>
+                <button id="extra-memory" type="button" class="btn btn-outline-secondary">16GB Unified Memory</button>
+            
+                <h3 class="my-3">Storage</h3>
+                <button id="general-storage" type="button" class="btn btn-outline-secondary">256GB SSD Storage</button>
+                <button id="medium-storage" type="button" class="btn btn-outline-secondary">512GB SSD Storage</button>
+                <button id="large-storage" type="button" class="btn btn-outline-secondary">1TB SSD Storage</button>
+
+                <h3 class="my-3">Choose Your Delivery Option</h3>
+                <button id="general-charge" type="button" class="btn btn-outline-secondary">Friday, Aug 25 Free Prime Delivery</button>
+                <button id="extra-charge" type="button" class="btn btn-outline-secondary">Friday, Aug 21 Delivery Charge $20</button>
+                <!-- table starts  -->
+                <table class="table mt-5 fw-bold">
+                  <thead>
+                    <tr>
+                      <th scope="col">Best Price</th>
+                      <th scope="col">$<span id="general-price">1299</span></th>
+            
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Extra Memory Cost</td>
+                      <td>$<span id="memory-price">0</span></td>
+                    </tr>
+                    <tr>
+               
+                      <td>Extra Storage Cost</td>
+                      <td>$<span id="storage-price">0</span></td>
+                    </tr>
+                    <tr>
+                      <td>Extra Delivery Charge</td>
+                      <td>$<span id="delivery-charge">0</span></td>
+                    </tr>
+                  </tbody>
+                  <tfoot>
+                   <tr>
+                      <td><span>Total Price</span></td>
+                      <td>$<span id="grand-total">1299</span></td>
+                    </tr>
+                 </tfoot>
+                </table>
+                <div>
+                    <h3>Add Pomo Code</h3>
+                    <input class="p-1" type="text" name="" id="input-field">
+                    <button id="apply" type="button" class="btn btn-danger">Apply</button>
+                </div>
+              </div>
+           </div>
+           <hr>
+         <div>
+             <h3 class="h2 text-center">Total: $<span id="final-total">1299</span></h3>
+         </div>
+        </div>
+       
+     </section>
     
     
     <!-- bootstrap js file  -->
@@ -18,5 +85,6 @@
 
     <!-- javascript file  -->
     <script src="index.js"></script>
+
 </body>
 </html>
