@@ -1,77 +1,89 @@
-// memory starts from here 
+// memory event handler starts from here
 document.getElementById('general-memory').addEventListener('click',function(){
 
-const productPrice = getProductPrice ('memory-price','0');
-updateTotal(productPrice);
+    memoryField.innerText = '0';
+    updateTotal();
+})
+ 
+ document.getElementById('extra-memory').addEventListener('click',function(){
 
+    memoryField.innerText = '180';
+    updateTotal();
 });
-document.getElementById('extra-memory').addEventListener('click',function(){
+ 
+// SSD storage event handler starts from here
+    document.getElementById('general-storage').addEventListener('click',function(){
+    
+       storageField.innerText = '0'
+       updateTotal();
+    });
+    
+    document.getElementById('medium-storage').addEventListener('click',function(){
 
-    const productPrice = getProductPrice ('memory-price','100');
-    updateTotal(productPrice);
-});
+       storageField.innerText = '100'
+       updateTotal();
+    });
+    
+    document.getElementById('large-storage').addEventListener('click',function(){
 
-// SSD storage start from here 
-document.getElementById('general-storage').addEventListener('click',function(){
+       storageField.innerText = '180'
+       updateTotal();
+    });
+    
+    // delivery charge event handler starts from here
+    document.getElementById('general-charge').addEventListener('click',function(){
 
-const productPrice = getProductPrice ('storage-price','0');
-updateTotal(productPrice)
-});
+       deliveryField.innerText = '0'
+       updateTotal();
+    });
+    
+    document.getElementById('extra-charge').addEventListener('click',function(){
 
-document.getElementById('medium-storage').addEventListener('click',function(){
+       deliveryField.innerText = '20'
+       updateTotal();
+    });
+     
+    // field id select here 
+    const generalField = document.getElementById('general-price');
+    const memoryField = document.getElementById('memory-price');
+    const storageField = document.getElementById('storage-price');
+    const deliveryField = document.getElementById('delivery-charge');
+    
+    // update total productPrice function
+    function updateTotal(){
 
-    const productPrice = getProductPrice ('storage-price','80');
-    updateTotal(productPrice)
-});
+    const memoryPrice = parseInt(memoryField.innerText);
+    const storagePrice = parseInt(storageField.innerText);
+    const deliveryPrice = parseInt(deliveryField.innerText);
+ 
+    generalField.innerText = '1299';
+    const basePrice = parseInt(generalField.innerText);
+ 
+    const subTotal = memoryPrice + storagePrice + deliveryPrice + basePrice;
 
-document.getElementById('large-storage').addEventListener('click',function(){
+    const grandTotalField = document.getElementById('grand-total');
+      grandTotalField.innerHTML = subTotal ;
 
-    const productPrice = getProductPrice ('storage-price','130');
-    updateTotal(productPrice)
-});
+    const finalTotalField = document.getElementById('final-total');
+       finalTotalField.innerHTML = subTotal ; 
+    
+    //    discount calculate 
+    const discount = (subTotal * 20) / 100;
+    const finalTotal = subTotal - discount;
+    console.log(finalTotal)
 
-// delivery charge 
-document.getElementById('general-charge').addEventListener('click',function(){
-    const productPrice = getProductPrice ('delivery-charge','0');
-    updateTotal(productPrice)
-});
-
-document.getElementById('extra-charge').addEventListener('click',function(){
-    const productPrice = getProductPrice ('delivery-charge','20');
-    updateTotal(productPrice)
-});
-
-// get product price function 
-function getProductPrice (id,price){
-const getPrice = document.getElementById(id);
-getPrice.innerText = price;
-const getPriceTotal = parseInt(getPrice.innerText);
-return getPriceTotal;
-}
-
-// update total productPrice function
-function updateTotal(productPrice){
-const storagePrice = document.getElementById('grand-total');
-storagePrice.innerText = '1299';
-const storageAmount = parseInt(storagePrice.innerText);
-const totalStoragePrice = storageAmount + productPrice;
-
-storagePrice.innerText = totalStoragePrice;
-
-// get final total price 
-const finalTotalField = document.getElementById('final-total');
- finalTotalField.innerHTML = totalStoragePrice; 
-// get total price after 20% discount
-const discount = totalStoragePrice / 20;
-const finalTotal = totalStoragePrice - discount;
-
-document.getElementById('apply').addEventListener('click',function(){
-   const inputField  = document.getElementById('input-field');
-   const inputFieldValue = inputField.value;
-   if(inputFieldValue == 'stevekaku'){
-    document.getElementById('final-total').innerHTML = finalTotal;
-   }
-   inputField.value = '';
-});
-
-}
+           
+    document.getElementById('apply').addEventListener('click',function(){
+        const inputField  = document.getElementById('input-field');
+        const inputFieldValue = inputField.value;
+        
+        if(inputFieldValue == 'stevekaku'){
+         document.getElementById('final-total').innerHTML = finalTotal;
+        }
+        inputField.value = '';
+     });
+     
+   
+    }
+ 
+ 
